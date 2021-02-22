@@ -2,7 +2,6 @@ package com.raven.ravenandroidsdk.api
 
 import android.content.Context
 import com.google.gson.GsonBuilder
-import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -40,7 +39,7 @@ internal class ApiProvider(context: Context) {
         val interceptor = HttpLoggingInterceptor()
         interceptor.apply { interceptor.level = HttpLoggingInterceptor.Level.BODY }
         val httpClient = OkHttpClient.Builder().callTimeout(15, TimeUnit.SECONDS)
-        httpClient.addInterceptor(ChuckInterceptor(app.applicationContext))
+//        httpClient.addInterceptor(ChuckInterceptor(app.applicationContext))
 
         if (secretKey != null) {
             httpClient.addInterceptor(object : Interceptor {
