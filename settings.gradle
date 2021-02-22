@@ -1,0 +1,2 @@
+include ':raven-android-sdk'
+rootProject.name = "Sdk"
