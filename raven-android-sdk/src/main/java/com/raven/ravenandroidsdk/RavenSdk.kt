@@ -22,25 +22,12 @@ object RavenSdk {
     const val RAVEN_NOTIFICATION_ID = "raven_notification_id"
 
     /*
-    Method to initialize Raven SDK when you want to trigger raven events via SDK.
     Invoke on app launch
      */
     @Throws(IllegalArgumentException::class)
     fun initialize(context: Application, appId: String, secretKey: String) {
         initPrefs(context, appId)
         ApiProvider(context, secretKey)
-        fetchCurrentUser()
-    }
-
-
-    /*
-    Method to initialize Raven SDK when you do not want to trigger raven events via SDK.
-    Invoke on app launch
-     */
-    @Throws(IllegalArgumentException::class)
-    fun initialize(context: Application, appId: String) {
-        initPrefs(context, appId)
-        ApiProvider(context)
         fetchCurrentUser()
     }
 
