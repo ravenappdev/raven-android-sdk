@@ -2,6 +2,7 @@ package com.raven.ravenandroidsdk.api.controllers
 
 import com.raven.ravenandroidsdk.PLATFORM
 import com.raven.ravenandroidsdk.PREF_USER_DEVICE_ID
+import com.raven.ravenandroidsdk.PREF_USER_FCM_TOKEN
 import com.raven.ravenandroidsdk.RavenSdk
 import com.raven.ravenandroidsdk.api.ApiEndpoints
 import com.raven.ravenandroidsdk.models.Device
@@ -55,6 +56,7 @@ internal class UpdateTokenController : Callback<Device?> {
             setCurrentUser(currentUser)
 
             Prefs.putString(PREF_USER_DEVICE_ID, device?.deviceSid)
+            Prefs.putString(PREF_USER_FCM_TOKEN, device?.fcmToken)
 
             callback?.onSuccess()
         } else {

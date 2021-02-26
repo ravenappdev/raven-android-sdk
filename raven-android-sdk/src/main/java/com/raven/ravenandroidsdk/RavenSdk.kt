@@ -148,7 +148,12 @@ object RavenSdk {
             return
         }
 
-        //check if cached token is same as the argument
+        //check if token already sent to server
+        if (Prefs.getString(PREF_USER_FCM_TOKEN, null) == token) {
+            return
+        }
+
+        //check if token already present with server
         val currentUser = getCurrentUser()
         var isUpdate = false
         for (item in currentUser?.devices ?: arrayListOf()) {
